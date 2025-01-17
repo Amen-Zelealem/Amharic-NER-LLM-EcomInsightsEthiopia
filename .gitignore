@@ -13,3 +13,15 @@ data
 # Environment Variables
 # ========================
 .env
+
+
+# ========================
+# Cache Files
+# ========================
+__pycache__
+
+
+# ========================
+# Sessions
+# ========================
+session_name.session
