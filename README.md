@@ -56,3 +56,28 @@ Install Dependencies:
 `pip install -r requirements.txt`
 
 
+# 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+   
+2. Create a new branch: 
+   
+```git checkout -b feature-branch```  
+
+3. Make your changes and commit: 
+
+```git commit -m 'Add new feature'```
+  
+4. Push to the branch:
+ 
+```git push origin feature-branch```
+
+5. Open a pull request.
+
+Feel free to reach out using the contact below:
+
+✉️ [Amen-Zelealem](mailto:amenzelealem@gmail.com)
+
+# **🌟 Elevate Your E-commerce Insights with Real-Time Intelligence!**
