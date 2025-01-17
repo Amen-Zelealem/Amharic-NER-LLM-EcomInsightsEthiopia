@@ -38,14 +38,15 @@ async def main():
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 async def fetch_messages(client, channel):
     messages = []
     try:
+        logger.info(f"Fetching messages from {channel}...")
         async for message in client.iter_messages(channel, limit=100):
             messages.append(message.text)
+        logger.info(f"Successfully fetched {len(messages)} messages from {channel}.")
     except Exception as e:
-        logger.error(f"Failed to fetch messages from {channel}: {e}")
+        logger.error(f"Error fetching messages from {channel}: {e}")
     return messages
 
 async def main():
@@ -67,5 +68,6 @@ def save_messages_to_csv(messages, filename='telegram_messages.csv'):
     df = pd.DataFrame(messages, columns=['messages'])
     df.to_csv(filename, index=False)
     logger.info(f"Messages saved to {filename}.")
+
 
 
