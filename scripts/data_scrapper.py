@@ -56,3 +56,26 @@ async def main():
         df.to_csv('telegram_messages.csv', index=False)
         logger.info("Messages saved to telegram_messages.csv.")
 
+def save_messages_to_csv(messages, filename='telegram_messages.csv'):
+    df = pd.DataFrame(messages, columns=['messages'])
+    df.to_csv(filename, index=False)
+    logger.info(f"Messages saved to {filename}.")
+
+async def fetch_messages(client, channel):
+    messages = []
+    try:
+        async for message in client.iter_messages(channel, limit=100):
+            messages.append(message.text)
+    except Exception as e:
+        logger.error(f"Failed to fetch messages from {channel}: {e}")
+    return messages
+
+async def main():
+    async with TelegramClient('session_name', api_id, api_hash) as client:
+        all_messages = []
+        for channel in channel_usernames:
+            messages = await fetch_messages(client, channel)
+            all_messages.extend(messages)
+
+        save_messages_to_csv(all_messages)
+
