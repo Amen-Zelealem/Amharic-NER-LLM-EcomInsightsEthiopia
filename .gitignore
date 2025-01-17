@@ -12,4 +12,5 @@ data
 # ========================
 # Environment Variables
 # ========================
-.env
+config.bat
+node_modules
