@@ -38,28 +38,6 @@ async def main():
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-async def main():
-    logger.info("Connecting to Telegram client...")
-    async with TelegramClient('session_name', api_id, api_hash) as client:
-        logger.info("Client connected successfully.")
-        all_messages = []
-        for channel in channel_usernames:
-            try:
-                logger.info(f"Fetching messages from {channel}...")
-                async for message in client.iter_messages(channel, limit=100):
-                    all_messages.append(message.text)
-            except Exception as e:
-                logger.error(f"Failed to fetch messages from {channel}: {e}")
-
-        logger.info(f"Fetched {len(all_messages)} messages.")
-        df = pd.DataFrame(all_messages, columns=['messages'])
-        df.to_csv('telegram_messages.csv', index=False)
-        logger.info("Messages saved to telegram_messages.csv.")
-
-def save_messages_to_csv(messages, filename='telegram_messages.csv'):
-    df = pd.DataFrame(messages, columns=['messages'])
-    df.to_csv(filename, index=False)
-    logger.info(f"Messages saved to {filename}.")
 
 async def fetch_messages(client, channel):
     messages = []
@@ -78,4 +56,16 @@ async def main():
             all_messages.extend(messages)
 
         save_messages_to_csv(all_messages)
+
+def save_messages_to_csv(messages, filename='telegram_messages.csv'):
+    if os.path.exists(filename):
+        choice = input(f"File {filename} exists. Overwrite? (Y/N): ").lower()
+        if choice != 'y':
+            logger.info("Operation cancelled.")
+            return
+
+    df = pd.DataFrame(messages, columns=['messages'])
+    df.to_csv(filename, index=False)
+    logger.info(f"Messages saved to {filename}.")
+
 
