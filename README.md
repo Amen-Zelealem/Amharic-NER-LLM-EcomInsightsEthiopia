@@ -18,6 +18,7 @@ The following Ethiopian-based Telegram e-commerce channels have been selected fo
 | └── settings.json
 +---notebooks
 | ├── data_processing.ipynb
+| ├── fine_tunning.ipynb
 | ├── init.ipynb
 | └── README.md
 +---scripts
@@ -65,6 +66,47 @@ Install Dependencies:
 
 `pip install -r requirements.txt`
 
+## Models Evaluated 🤖
+1. **XLM-Roberta**
+   - Pre-trained on 100 languages, including Amharic. 🌐
+   - Excellent for multilingual tasks with extensive contextual understanding.
+
+2. **DistilBERT**
+   - A lighter, faster version of BERT. ⚡
+   - Suitable for resource-constrained environments while maintaining accuracy.
+
+3. **mBERT (Multilingual BERT)**
+   - A widely recognized baseline for multilingual NER tasks. 📚
+   - Pre-trained on various languages, including Amharic.
+
+## Fine-Tuning Process ⚙️
+- **Epochs**: Each model was fine-tuned over three epochs.
+- **Batch Size**: Set to 16 to optimize memory usage.
+- **Evaluation Metrics**: Models were assessed using precision, recall, and F1-score.
+- **Dataset Size**: 27,989 labeled examples.
+
+## Results Summary 📊
+### XLM-Roberta
+- **Precision**: 0.976126
+- **Recall**: 0.975527
+- **F1 Score**: 0.963443
+
+### DistilBERT
+- **Precision**: 0.967977
+- **Recall**: 0.966880
+- **F1 Score**: 0.950599
+
+### mBERT
+- **Precision**: 0.989941
+- **Recall**: 0.988556
+- **F1 Score**: 0.989045
+
+## Conclusion 🎉
+- **Best Performer**: mBERT demonstrated the highest performance across all metrics, making it the preferred choice for NER tasks in this context.
+- **Next Steps**: Further fine-tuning on mBERT and exploration of different training strategies for XLM-Roberta could yield even better results.
+
+## Acknowledgments 🙏
+Special thanks to the contributors and the community for their support in this project.
 
 ## 🤝 Contributing
 
