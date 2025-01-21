@@ -4,6 +4,10 @@ A comprehensive repository dedicated to **extracting insights** and **data** fro
 ### 🔍 **Overview**
 This repository serves as a framework for leveraging **Named Entity Recognition (NER)** in the Amharic language, specifically tailored for e-commerce applications.
 
+## Selected Channels
+The following Ethiopian-based Telegram e-commerce channels have been selected for data ingestion:
+- **@ethio_brand_collection**
+
 ## 📂 **Project Structure**
 
 ```
@@ -37,6 +41,12 @@ This repository serves as a framework for leveraging **Named Entity Recognition 
 | └── requirements.txt
 ```
 
+## 🛠️ Tools and Libraries
+- **Python**: The primary programming language used for the implementation.
+- **Telethon**: A Python library for interacting with Telegram’s API to scrape messages.
+- **Pandas**: For data manipulation and storage in structured formats.
+- **NLTK or SpaCy**: For text preprocessing and tokenization specific to Amharic linguistic features.
+
 ## 🚀 Installation Instructions
 To run the project locally, follow these steps:
 
@@ -56,7 +66,7 @@ Install Dependencies:
 `pip install -r requirements.txt`
 
 
-# 🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
 
