@@ -105,8 +105,6 @@ Install Dependencies:
 - **Best Performer**: mBERT demonstrated the highest performance across all metrics, making it the preferred choice for NER tasks in this context.
 - **Next Steps**: Further fine-tuning on mBERT and exploration of different training strategies for XLM-Roberta could yield even better results.
 
-## Acknowledgments 🙏
-Special thanks to the contributors and the community for their support in this project.
 
 ## 🤝 Contributing
 
